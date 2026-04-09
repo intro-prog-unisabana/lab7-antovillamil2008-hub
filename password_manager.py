@@ -35,6 +35,8 @@ def add_login(filename: str, website_name: str, username: str, password: str) ->
     """TODO: Parte 4."""
     pass
 
-encrypt_single_pass('example1.txt')
 
-encrypt_passwords_in_file('examples/example2.csv')
+if __name__ == "_main_":
+    encrypt_single_pass('example1.txt')
+
+    encrypt_passwords_in_file('examples/example2.csv')
