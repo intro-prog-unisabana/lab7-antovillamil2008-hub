@@ -16,8 +16,10 @@ def encrypt_single_pass(filename: str) -> None:
 def encrypt_passwords_in_file(filename: str) -> None:
     """TODO: Parte 2."""
     with open(filename, "r" ) as archivo: 
-        for linea in archivo: 
-            print(linea)
+        l=csv.reader(archivo)
+        for linea in l: 
+           print(linea)
+ 
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
