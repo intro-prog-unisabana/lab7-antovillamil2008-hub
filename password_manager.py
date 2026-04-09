@@ -17,9 +17,15 @@ def encrypt_passwords_in_file(filename: str) -> None:
     """TODO: Parte 2."""
     with open(filename, "r" ) as archivo: 
         l=csv.reader(archivo)
-        for linea in l: 
-           print(linea)
- 
+        data=[]
+        for linea in l:
+            data.append(linea)
+    for index, linea in enumerate(data):
+        if index!=0:
+            linea[2]=caesar_encrypt(linea[2])
+    with open(filename, "w") as archivo:
+        escritor=csv. writer(archivo)
+        escritor.writerows(data)
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
