@@ -17,7 +17,8 @@ def encrypt_passwords_in_file(filename: str) -> None:
         l=csv.reader(archivo)
         data=[]
         for linea in l:
-            data.append(linea)
+            if len(linea)>0:
+                data.append(linea)
     for index, linea in enumerate(data):
         if index!=0:
             linea[2]=caesar_encrypt(linea[2])
