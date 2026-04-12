@@ -48,10 +48,15 @@ def change_password(filename: str, website: str, password: str) -> bool:
 
 def add_login(filename: str, website_name: str, username: str, password: str) -> None:
     """TODO: Parte 4."""
-    pass
+    contraseña_encriptada=caesar_encrypt(password)
+    entrada=[website_name, username, contraseña_encriptada]
+    with open (filename, "a", newline='') as archivo: 
+        escritor=csv.writer(archivo)
+        escritor.writerow(entrada)
 
 
 if __name__ == "_main_":
     encrypt_single_pass('example1.txt')
     encrypt_passwords_in_file('examples/example2.csv')
     change_password("example3.csv", "nonexistent.com", "randompass")
+    add_login("example3.csv", "newsite.com", "newuser", "mypassword123")
