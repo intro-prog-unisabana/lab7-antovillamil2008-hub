@@ -44,7 +44,7 @@ def change_password(filename: str, website: str, password: str) -> bool:
     with open(filename, "w", newline='') as archivo:
         escritor=csv.writer(archivo)
         escritor.writerows(data)
-        return 
+        return True
 
 def add_login(filename: str, website_name: str, username: str, password: str) -> None:
     """TODO: Parte 4."""
