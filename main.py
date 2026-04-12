@@ -9,8 +9,32 @@ def main() -> None:
         print("Options: (1) Change Password, (2) Add Password, (3) Quit:")
         opcion=input().strip()
         if opcion=="1":
-            datos=input("Enter the website and the new password:")
-            
+            datos=input("Enter the website and the new password:").split()
+            if len(datos)<2:
+                print("Input is in the wrong format!")
+            elif len(datos[1]) < 12:
+                print("Password is too short!")
+            else:
+                exito = change_password(filename, datos[0], datos[1])
+                if exito:
+                    print("Password changed.")
+                else:
+                    print("Website not found! Operation failed.")
+        elif opcion=="2":
+            datos=input("Enter the website, username, and password:").split()
+            if len(datos) < 3:
+                print("Input is in the wrong format!")
+            elif len(datos[2]) < 12:
+                print("Password is too short!")
+            else:
+                add_login(filename, datos[0], datos[1], datos[2])
+                print("Login added.")
+        elif opcion=="3":
+            break
+        else: 
+            print("Invalid option selected!")
+
+
 
 
 if __name__ == "__main__":
